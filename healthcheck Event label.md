@@ -1,18 +1,18 @@
-## Healthcheck Event label Values
+## Healthcheck Event Label Values
 
 The following outlines all possible values for the healthcheck event label
 
-**category**|**action**|**label**
-:-----:|:-----:|:-----:
-healthcheck|started healthcheck|nutrition onboarding
-healthcheck|started healthcheck|nutrition twin
-healthcheck|started healthcheck|nutrition retake
-healthcheck|started healthcheck|activity onboarding
-healthcheck|started healthcheck|activity twin
-healthcheck|started healthcheck|activity retake
-healthcheck|started healthcheck|mood onboarding
-healthcheck|started healthcheck|mood twin
-healthcheck|started healthcheck|mood retake
-healthcheck|started healthcheck|full assessment onboarding
-healthcheck|started healthcheck|body twin
-healthcheck|started healthcheck|body retake
+**label**|**trigger**
+:-----:|:-----:
+nutrition onboarding|when a user selects the nutrition assessment from the welcome screen
+nutrition twin|when a user selects the nutrition assessment from the digital twin screen
+nutrition retake|when a user retakes the nutrition assessment 
+activity onboarding|when a user selects the activity assessment from the welcome screen
+activity twin|when a user selects the activity assessment from the digital twin screen
+activity retake|when a user retakes the activity assessment
+mood onboarding|when a user selects the mood assessment from the welcome screen
+mood twin|when a user selects the mood assessment from the digital twin screen
+mood retake|when a user retakes the mood assessment
+full assessment onboarding|when a user selects full assessment from the welocme screen
+body twin|when a user selects the body assessment from the digital twin screen
+body retake|when a user retakes the body assessment
