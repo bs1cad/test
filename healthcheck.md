@@ -80,3 +80,49 @@ window.snowplow('trackSelfDescribingEvent',
     label: 'nutrition retake'
   }}
   );
+```
+#### healthcheck events - Android
+##### started healthcheck onboarding
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "healthcheck");
+genericEvent.put("action", "started healthcheck");
+genericEvent.put("label", "nutrition onboarding);
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> healthcheckEvent = new HashMap<>();
+healthcheckEvent.put("chatId", chatId)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0", chatId);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
+##### completed healthcheck onboarding
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "healthcheck");
+genericEvent.put("action", "completed healthcheck");
+genericEvent.put("label", "nutrition onboarding);
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> healthcheckEvent = new HashMap<>();
+healthcheckEvent.put("chatId", chatId)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0", chatId);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
