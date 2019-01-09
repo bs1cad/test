@@ -126,8 +126,96 @@ Tracker.track(SelfDescribing.builder()
     .customContext(entities)
     .build());
 ```
+##### started healthcheck twin
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "healthcheck");
+genericEvent.put("action", "started healthcheck");
+genericEvent.put("label", "nutrition twin);
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> healthcheckEvent = new HashMap<>();
+healthcheckEvent.put("chatId", chatId)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0", chatId);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
+##### completed healthcheck twin
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "healthcheck");
+genericEvent.put("action", "completed healthcheck");
+genericEvent.put("label", "nutrition twin);
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> healthcheckEvent = new HashMap<>();
+healthcheckEvent.put("chatId", chatId)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0", chatId);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
+##### started retake healthcheck
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "healthcheck");
+genericEvent.put("action", "started healthcheck");
+genericEvent.put("label", "nutrition retake);
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> healthcheckEvent = new HashMap<>();
+healthcheckEvent.put("chatId", chatId)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0", chatId);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
+##### completed retake healthcheck 
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "healthcheck");
+genericEvent.put("action", "completed healthcheck");
+genericEvent.put("label", "nutrition retake);
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> healthcheckEvent = new HashMap<>();
+healthcheckEvent.put("chatId", chatId)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0", chatId);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
 #### Healthcheck events - iOS
-##### started healthcheck
+##### started healthcheck onboarding
 ```objective-c
 NSDictionary *genericEvent = @{
                          @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
@@ -135,6 +223,141 @@ NSDictionary *genericEvent = @{
                                  @"category": @"healthcheck",
                                  @"action": @"started healthcheck",
                                  @"label": @"nutrition onboarding"
+                                 }
+                        };
+
+NSDictionary *healthcheckEvent = @{
+                        @"data": @{
+                                @"chatId": @chatId
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0"
+                                                                  andData:healthcheckEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
+##### completed healthcheck onboarding
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"healthcheck",
+                                 @"action": @"completed healthcheck",
+                                 @"label": @"nutrition onboarding"
+                                 }
+                        };
+
+NSDictionary *healthcheckEvent = @{
+                        @"data": @{
+                                @"chatId": @chatId
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0"
+                                                                  andData:healthcheckEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
+##### started healthcheck twin
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"healthcheck",
+                                 @"action": @"started healthcheck",
+                                 @"label": @"nutrition twin"
+                                 }
+                        };
+
+NSDictionary *healthcheckEvent = @{
+                        @"data": @{
+                                @"chatId": @chatId
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0"
+                                                                  andData:healthcheckEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
+##### completed healthcheck twin
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"healthcheck",
+                                 @"action": @"completed healthcheck",
+                                 @"label": @"nutrition twin"
+                                 }
+                        };
+
+NSDictionary *healthcheckEvent = @{
+                        @"data": @{
+                                @"chatId": @chatId
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0"
+                                                                  andData:healthcheckEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
+##### started retake healthcheck
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"healthcheck",
+                                 @"action": @"started healthcheck",
+                                 @"label": @"nutrition retake"
+                                 }
+                        };
+
+NSDictionary *healthcheckEvent = @{
+                        @"data": @{
+                                @"chatId": @chatId
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0"
+                                                                  andData:healthcheckEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
+##### completed retake healthcheck
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"healthcheck",
+                                 @"action": @"completed healthcheck",
+                                 @"label": @"nutrition retake"
                                  }
                         };
 
