@@ -12,73 +12,115 @@ healthcheck|completed healthcheck|nutrition onboarding *or* nutrition twin *or* 
 ##### started healthcheck onboarding
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0',
+    data: {
+        chatId:chatId
+    }
+  }, 
+  [
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'healthcheck',
     action: 'started healthcheck',
     label: 'nutrition onboarding'
-  }}
+  }}]
   );
 ```
 ##### completed healthcheck onboarding
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0',
+    data: {
+        chatId:chatId
+    }
+  }, 
+  [
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'healthcheck',
     action: 'completed healthcheck',
     label: 'nutrition onboarding'
-  }}
+  }}]
   );
 ```
 ##### started healthcheck twin
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0',
+    data: {
+        chatId:chatId
+    }
+  }, 
+  [
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'healthcheck',
     action: 'started healthcheck',
     label: 'nutrition twin'
-  }}
+  }}]
   );
   ```
   ##### completed healthcheck twin
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0',
+    data: {
+        chatId:chatId
+    }
+  }, 
+  [
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'healthcheck',
     action: 'completed healthcheck',
     label: 'nutrition twin'
-  }}
+  }}]
   );
   ```
   ##### start retake healthcheck
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0',
+    data: {
+        chatId:chatId
+    }
+  }, 
+  [
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'healthcheck',
     action: 'start healthcheck',
     label: 'nutrition retake'
-  }}
+  }}]
   );
   ```
    ##### complete retake healthcheck
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0',
+    data: {
+        chatId:chatId
+    }
+  }, 
+  [
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'healthcheck',
     action: 'complete healthcheck',
     label: 'nutrition retake'
-  }}
+  }}]
   );
 ```
 #### healthcheck events - Android
