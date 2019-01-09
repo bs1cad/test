@@ -126,3 +126,31 @@ Tracker.track(SelfDescribing.builder()
     .customContext(entities)
     .build());
 ```
+#### Healthcheck events - iOS
+##### started healthcheck
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"healthcheck",
+                                 @"action": @"started healthcheck",
+                                 @"label": @"nutrition onboarding"
+                                 }
+                        };
+
+NSDictionary *healthcheckEvent = @{
+                        @"data": @{
+                                @"chatId": @chatId
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/healthcheck/jsonschema/1-0-0"
+                                                                  andData:healthcheckEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
