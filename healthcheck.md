@@ -1,6 +1,6 @@
 ## Healthcheck
 
-The example below is for users who choose nutrition.
+The example below is for users who choose nutrition. A complete list of possible event labels can be found [here]
 
 **category**|**action**|**label**|**trigger**
 :-----:|:-----:|:-----:|:-----:
