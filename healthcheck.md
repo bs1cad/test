@@ -1,6 +1,6 @@
 ## Healthcheck
 
-The example below is for users who choose nutrition. A complete list of possible event labels can be found [here]
+The example below is for users who choose nutrition. A complete list of possible event labels can be found [here](https://github.com/bs1cad/test/blob/master/healthcheck%20Event%20label.md)
 
 **category**|**action**|**label**|**trigger**
 :-----:|:-----:|:-----:|:-----:
