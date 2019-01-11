@@ -7,7 +7,7 @@ refer a friend|referred friend|'went to', 'came back'|user who wants to refer go
 
 
 #### Refer a friend events - JS
-##### invite friend
+##### referred friend
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
   {
@@ -19,7 +19,7 @@ window.snowplow('trackSelfDescribingEvent',
   }}
   );
 ```
-##### invite friend return
+##### referred friend return
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
   {
@@ -31,7 +31,7 @@ window.snowplow('trackSelfDescribingEvent',
   }}
   );
 ```
-##### referred
+##### accepted referral
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
   {
@@ -43,7 +43,7 @@ window.snowplow('trackSelfDescribingEvent',
   }}
   );
 ```
-##### referred return
+##### accepted referral return
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
   {
