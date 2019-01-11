@@ -2,8 +2,8 @@
 
 **category**|**action**|**label**|**trigger**
 :-----:|:-----:|:-----:|:-----:
-refer a friend|click|invite friend *or* referred|user clicks invite friends link *or* clicks on referred link
-refer a friend|return|invite friend *or* referred|user returns from *mention me* modal
+refer a friend|accepted referral|'went to', 'came back'|user who has been referred goes to or comes back from the referral modal
+refer a friend|referred friend|'went to', 'came back'|user who wants to refer goes to or comes back from the referral modal
 
 
 #### Refer a friend events - JS
@@ -14,8 +14,8 @@ window.snowplow('trackSelfDescribingEvent',
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'refer a friend',
-    action: 'click',
-    label: 'invite friend'
+    action: 'referred friend',
+    label: 'went to'
   }}
   );
 ```
@@ -26,56 +26,8 @@ window.snowplow('trackSelfDescribingEvent',
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'refer a friend',
-    action: 'return',
-    label: 'invite friend'
-  }}
-  );
-```
-##### invite friend consultation
-```JavaScript
-window.snowplow('trackSelfDescribingEvent',
-  {
-    schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
-    data: {
-    category: 'refer a friend',
-    action: 'click',
-    label: 'invite friend consultation'
-  }}
-  );
-```
-##### invite friend consultation return
-```JavaScript
-window.snowplow('trackSelfDescribingEvent',
-  {
-    schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
-    data: {
-    category: 'refer a friend',
-    action: 'return',
-    label: 'invite friend consultation'
-  }}
-  );
-```
-##### invite friend chatbot
-```JavaScript
-window.snowplow('trackSelfDescribingEvent',
-  {
-    schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
-    data: {
-    category: 'refer a friend',
-    action: 'click',
-    label: 'invite friend chatbot'
-  }}
-  );
-```
-##### invite friend chatbot return
-```JavaScript
-window.snowplow('trackSelfDescribingEvent',
-  {
-    schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
-    data: {
-    category: 'refer a friend',
-    action: 'return',
-    label: 'invite friend chatbot'
+    action: 'referred friend',
+    label: 'came back'
   }}
   );
 ```
@@ -86,8 +38,8 @@ window.snowplow('trackSelfDescribingEvent',
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'refer a friend',
-    action: 'click',
-    label: 'referred'
+    action: 'accepted referral',
+    label: 'went to'
   }}
   );
 ```
@@ -98,8 +50,8 @@ window.snowplow('trackSelfDescribingEvent',
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'refer a friend',
-    action: 'return',
-    label: 'referred'
+    action: 'accepted referral',
+    label: 'came back'
   }}
   );
 ```
