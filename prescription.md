@@ -12,7 +12,7 @@ window.snowplow('trackSelfDescribingEvent',
   {
     schema: 'iglu:com.babylonhealth/prescription/jsonschema/1-0-0',
     data: {
-      prescriptionId: appointmentID
+      prescriptionId: prescriptionId
     }
   }, 
   [
@@ -28,10 +28,10 @@ window.snowplow('trackSelfDescribingEvent',
 ##### completed prescription
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
-  {
+  {appointmentID
     schema: 'iglu:com.babylonhealth/prescription/jsonschema/1-0-0',
     data: {
-      prescriptionId: appointmentID
+      prescriptionId: prescriptionId
     }
   }, 
   [
