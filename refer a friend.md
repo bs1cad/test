@@ -10,48 +10,103 @@ refer a friend|referred friend|'went to', 'came back'|user who wants to refer go
 ##### referred friend
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/referral/jsonschema/1-0-0',
+    data: {
+      provider: provider
+    }
+  [
+  }, 
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'refer a friend',
     action: 'referred friend',
     label: 'went to'
-  }}
+  }}]
   );
 ```
 ##### referred friend return
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/referral/jsonschema/1-0-0',
+    data: {
+      provider: provider
+    }
+  [
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'refer a friend',
     action: 'referred friend',
     label: 'came back'
-  }}
+  }}]
   );
 ```
 ##### accepted referral
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/referral/jsonschema/1-0-0',
+    data: {
+      provider: provider
+    }
+  [
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'refer a friend',
     action: 'accepted referral',
     label: 'went to'
-  }}
+  }}]
   );
 ```
 ##### accepted referral return
 ```JavaScript
 window.snowplow('trackSelfDescribingEvent',
+{
+    schema: 'iglu:com.babylonhealth/referral/jsonschema/1-0-0',
+    data: {
+      provider: provider
+    }
+  [
   {
     schema: 'iglu:com.babylonhealth/generic_events/jsonschema/1-0-0',
     data: {
     category: 'refer a friend',
     action: 'accepted referral',
     label: 'came back'
-  }}
+  }}]
   );
 ```
+#### Referral events - Android
+##### referred friend
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "refer a friend");
+genericEvent.put("action", "referred friend");
+genericEvent.put("label", "went to");
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> referralEvent = new HashMap<>();
+referralEvent.put("provider", provider)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/referral/jsonschema/1-0-0", referralEvent);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
+## Parameter definitions
+These schema simply define the set of parameters we append to some of the event classes above
+
+#### referral schema
+**parameter**|**definition**
+:-----:|:-----:
+provider|provider used for referral modal. Mention Me for example
