@@ -103,6 +103,72 @@ Tracker.track(SelfDescribing.builder()
     .customContext(entities)
     .build());
 ```
+##### referred friend return
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "refer a friend");
+genericEvent.put("action", "referred friend");
+genericEvent.put("label", "came back");
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> referralEvent = new HashMap<>();
+referralEvent.put("provider", provider)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/referral/jsonschema/1-0-0", referralEvent);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
+##### accepted referral
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "refer a friend");
+genericEvent.put("action", "accepted referral");
+genericEvent.put("label", "went to");
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> referralEvent = new HashMap<>();
+referralEvent.put("provider", provider)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/referral/jsonschema/1-0-0", referralEvent);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
+##### accepted referral return
+```java
+Map<String, Object> genericEvent = new HashMap<>();
+genericEvent.put("category", "refer a friend");
+genericEvent.put("action", "accepted referral");
+genericEvent.put("label", "came back");
+
+SelfDescribingJson genericEntity = new SelfDescribingJson("iglu:com.babylonhealth/generic_events/jsonschema/1-0-0", genericEvent);
+
+List<SelfDescribingJson> entities = new ArrayList<>();
+entities.add(genericEntity);
+
+Map<String, Object> referralEvent = new HashMap<>();
+referralEvent.put("provider", provider)
+
+SelfDescribingJson eventData = new SelfDescribingJson("iglu:com.babylonhealth/referral/jsonschema/1-0-0", referralEvent);
+
+Tracker.track(SelfDescribing.builder()
+    .eventData(eventData)
+    .customContext(entities)
+    .build());
+```
 ## Parameter definitions
 These schema simply define the set of parameters we append to some of the event classes above
 
