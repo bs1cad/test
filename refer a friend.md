@@ -169,6 +169,115 @@ Tracker.track(SelfDescribing.builder()
     .customContext(entities)
     .build());
 ```
+#### Referral events - iOS
+##### referred friend
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"refer a friend",
+                                 @"action": @"referred friend",
+                                 @"label": @went to
+                                 }
+                        };
+
+NSDictionary *referralEvent = @{
+                        @"data": @{
+                                @"provider": @provider
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/referral/jsonschema/1-0-0"
+                                                                  andData:referralEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
+##### referred friend return
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"refer a friend",
+                                 @"action": @"referred friend",
+                                 @"label": @came back
+                                 }
+                        };
+
+NSDictionary *referralEvent = @{
+                        @"data": @{
+                                @"provider": @provider
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/referral/jsonschema/1-0-0"
+                                                                  andData:referralEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
+##### accepted referral
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"refer a friend",
+                                 @"action": @"accepted referral",
+                                 @"label": @went to
+                                 }
+                        };
+
+NSDictionary *referralEvent = @{
+                        @"data": @{
+                                @"provider": @provider
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/referral/jsonschema/1-0-0"
+                                                                  andData:referralEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
+##### accepted referral
+```objective-c
+NSDictionary *genericEvent = @{
+                         @"schema":@"iglu:com.babylonhealth/generic_event/jsonschema/1-0-0",
+                         @"data": @{
+                                 @"category": @"refer a friend",
+                                 @"action": @"accepted referral",
+                                 @"label": @came back
+                                 }
+                        };
+
+NSDictionary *referralEvent = @{
+                        @"data": @{
+                                @"provider": @provider
+                                }
+                        };
+
+SPSelfDescribingJson *sdj = [[SPSelfDescribingJson alloc] initWithSchema:@"iglu:com.babylonhealth/referral/jsonschema/1-0-0"
+                                                                  andData:referralEvent];
+
+SPUnstructured *event = [SPUnstructured build:^(id<SPUnstructuredBuilder> builder) {
+  [builder setEventData:sdj];
+  [builder setContexts:[NSMutableArray arrayWithArray:@[genericEvent]]];
+}];
+
+[tracker trackUnstructuredEvent:event];
+```
 ## Parameter definitions
 These schema simply define the set of parameters we append to some of the event classes above
 
